@@ -1,0 +1,12 @@
+//install pacakge
+sudo apt-get install bluetooth bluez-utils bluez-alsa
+sudo bluez-test-device trusted 30:14:12:04:30:52 yes
+
+//pair BT
+hcitool scan
+sudo bluez-simple-agent hci0 30:14:12:04:30:52
+sudo bluez-test-device trusted 30:14:12:04:30:52 yes
+
+//other tools
+sudo bluez-test-device remove 30:14:12:04:30:52
+sudo bluez-test-device list
