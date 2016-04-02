@@ -1,5 +1,5 @@
-# Adruino_Doorunlock
-Adruino Client + Raspbarry Pi Host Doorunlock
+# Arduino_Doorunlock
+Arduino Client + Raspbarry Pi Host Doorunlock
 
 doorlock - Nodejs Webservice for control unlock door/Python client check need to send signal to Arduino
 bluetooth_relay_door.ino - Arduino client program, Bluetooth listen for signal from Raspberry Pi
