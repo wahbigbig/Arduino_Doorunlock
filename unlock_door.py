@@ -10,12 +10,12 @@ def connectBT():
 	try:
 		sock = bluetooth.BluetoothSocket (bluetooth.RFCOMM)
 		sock.connect((bd_addr,port))
+		return sock
 	except bluetooth.btcommon.BluetoothError as err:
 		print err
 		print "BT Error, wait 5sec to retry"
 		time.sleep(5)
-		connectBT()
-	return sock
+		connectBT()	
 
 sock = connectBT()
 server_address = "http://localhost:3000" 
@@ -29,7 +29,8 @@ while 1:
 			sock.send("1")
 		except bluetooth.btcommon.BluetoothError:
 			print "Cannot send signal, retry connect"
-			connectBT()
+			sock = connectBT()
+			sock.send("1")
 	else:	
 		print "nothing to do"
 	time.sleep(1)
